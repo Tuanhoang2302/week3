@@ -100,7 +100,9 @@ public class Fraction extends Week3Task1 {
     public boolean equals(Object obj){
         if(obj instanceof Fraction) {
             Fraction other = (Fraction) obj;
-
+            
+            this.reduce();
+            other.reduce();
             if (!((this.numerator == other.numerator && this.denominator == other.denominator) ||
                     ((this.numerator == 0 && other.numerator == 0)))) {
                 return false;
