@@ -82,6 +82,7 @@ public class Fraction extends Week3Task1 {
 
     public Fraction divide (Fraction other){
         Fraction divd = new Fraction();
+        this.reduce();
         try{
             divd.numerator = this.numerator * other.denominator;
             divd.denominator = this.denominator * other.numerator;
@@ -92,7 +93,6 @@ public class Fraction extends Week3Task1 {
             return divd;
         }
         catch (ArithmeticException e){
-            System.out.println("khong the chia");
             return this;
         }
     }
@@ -100,7 +100,6 @@ public class Fraction extends Week3Task1 {
     public boolean equals(Object obj){
         if(obj instanceof Fraction) {
             Fraction other = (Fraction) obj;
-            
             this.reduce();
             other.reduce();
             if (!((this.numerator == other.numerator && this.denominator == other.denominator) ||
@@ -116,12 +115,14 @@ public class Fraction extends Week3Task1 {
     }
 
     public static void main(String[] args) {
-        Fraction F = new Fraction(1,5);
-        Fraction R = new Fraction(2, 0);
+        Fraction F = new Fraction(-1,-5);
+        Fraction R = new Fraction(0, 10);
         //System.out.println();
         Fraction temp = new Fraction();
-        temp = F.add(R);
+        temp = F.divide(R);
+        //temp = F.add(R);
         System.out.println(temp.getNumerator() + "/" + temp.getDenominator());
+        //System.out.println(F.equals(R));
 
     }
 }
