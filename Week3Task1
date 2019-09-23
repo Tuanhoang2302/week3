@@ -4,22 +4,27 @@ public class Week3Task1 {
         a = Math.abs(a);
         b = Math.abs(b);
         int rem = 0;
-        if(b > a){
-            int temp = b;
-            b = a;
-            a = temp;
+        if(a == 0 || b == 0){
+            return 1;
         }
-        while(b > 0) {
-            rem = a % b;
-            a = b;
-            b = rem;
+        else {
+            if (b > a) {
+                int temp = b;
+                b = a;
+                a = temp;
+            }
+            while (b > 0) {
+                rem = a % b;
+                a = b;
+                b = rem;
+            }
+            return a;
         }
-        return a;
     }
 
-    public long fibonacci(int n){
-        long a0 = 0, a1 = 1;
-        long next = 0;
+    public int fibonacci(int n){
+        int a0 = 0, a1 = 1;
+        int next = 0;
         if(n == 0){
             return a0;
         }
@@ -38,7 +43,7 @@ public class Week3Task1 {
     }
 
     public void primes(int n){
-        long[] arr = new long[n];
+        int[] arr = new int[n];
         for(int i = 0; i < n; i++){
             arr[i] = 1;
         }
@@ -61,10 +66,10 @@ public class Week3Task1 {
 
     public static void main(String[] args) {
         Week3Task1 W = new Week3Task1();
-        int a = W.gcd(0, 4);
+        int a = W.gcd(0, 0);
         //System.out.println(a);
 
-        //System.out.println(W.fibonacci(100000));
+        //System.out.println(W.fibonacci());
 
         W.primes(1000);
     }
